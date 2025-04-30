@@ -1,18 +1,36 @@
-import React from 'react'
 import './styles.css'
+import { ReactNode } from 'react'
+import { SidebarDiktat } from '@/components/SidebarDiktat'
+import { cn } from '@/lib/utils'
+import ReactQueryProvider from '@/components/ReactQueryProvider'
+import { ThemeProvider } from 'next-themes'
+import { SidebarProvider } from '@/components/ui/sidebar'
 
 export const metadata = {
-  description: 'A blank template using Payload in a Next.js app.',
-  title: 'Payload Blank Template',
+  title: 'RAG Diktat Kuliah',
+  description: 'Aplikasi Chat dengan Diktat Kuliah menggunakan Retrieval-Augmented Generation',
+  applicationName: 'DiktatRAG',
 }
 
-export default async function RootLayout(props: { children: React.ReactNode }) {
-  const { children } = props
-
+export default function RootLayout({ children }: { children: ReactNode | ReactNode[] }) {
   return (
-    <html lang="en">
-      <body>
-        <main>{children}</main>
+    <html lang="id" suppressHydrationWarning>
+      <body className={cn('min-h-screen bg-background text-foreground antialiased')}>
+        <ReactQueryProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <SidebarProvider>
+              <div className="flex h-screen w-screen overflow-hidden">
+                <SidebarDiktat />
+                <main className="flex-1 h-full overflow-y-auto">{children}</main>
+              </div>
+            </SidebarProvider>
+          </ThemeProvider>
+        </ReactQueryProvider>
       </body>
     </html>
   )
