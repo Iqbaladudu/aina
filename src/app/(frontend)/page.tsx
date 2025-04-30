@@ -211,7 +211,7 @@ export default function HomePage() {
                       الفرق بين المذهب الشافعي والمذهب الحنفي في مسألة الصلاة يشمل عدة جوانب مهمة:
                     </p>
                     <p className="text-xs mt-1 mb-2 opacity-80">
-                      (Perbedaan antara mazhab Syafi'i dan Hanafi dalam masalah shalat mencakup
+                      (Perbedaan antara mazhab Syafi&apos;i dan Hanafi dalam masalah shalat mencakup
                       beberapa aspek penting:)
                     </p>
                     <motion.ul
