@@ -192,7 +192,7 @@ export default function HomePage() {
                   <div className="flex-1 p-4 rounded-lg bg-primary text-primary-foreground">
                     <p>ما الفرق بين المذهب الشافعي والمذهب الحنفي في مسألة الصلاة؟</p>
                     <p className="text-xs mt-2 opacity-80">
-                      (Apa perbedaan antara mazhab Syafi'i dan Hanafi dalam masalah shalat?)
+                      (Apa perbedaan antara mazhab Syafi&apos;i dan Hanafi dalam masalah shalat?)
                     </p>
                   </div>
                 </motion.div>
