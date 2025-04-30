@@ -473,7 +473,7 @@ export default function ChatPage({ params }: ChatPageProps) {
                                 </div>
                                 {source.content && (
                                   <div className="mt-2 text-xs text-muted-foreground border-l-2 border-muted pl-2 italic">
-                                    "{source.content}..."
+                                     &ldquo;{source.content}...&ldquo;
                                   </div>
                                 )}
                               </div>
