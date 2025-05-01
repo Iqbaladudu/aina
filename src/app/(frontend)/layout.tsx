@@ -7,9 +7,9 @@ import { ThemeProvider } from 'next-themes'
 import { SidebarProvider } from '@/components/ui/sidebar'
 
 export const metadata = {
-  title: 'RAG Diktat Kuliah',
-  description: 'Aplikasi Chat dengan Diktat Kuliah menggunakan Retrieval-Augmented Generation',
-  applicationName: 'DiktatRAG',
+  title: 'AINA AI - An AI Powered Islamic Studies',
+  description: 'Learn, ask, and discuss Islamic studies with AI',
+  applicationName: 'AINA-AI',
 }
 
 export default function RootLayout({ children }: { children: ReactNode | ReactNode[] }) {
