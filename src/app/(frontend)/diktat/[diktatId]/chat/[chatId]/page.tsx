@@ -83,29 +83,25 @@ export default function ChatPage() {
     isLoading: isDiktatLoading,
     isError: isDiktatError,
     error: diktatError,
-  } = useQuery<DiktatData>({
+    isSuccess,
+  } = useQuery({
     queryKey: ['diktat', diktatId],
     queryFn: async () => {
-      try {
-        const response = await getDiktatByIdAction(diktatId)
-        return response
-      } catch (error) {
-        console.error('Error fetching diktat:', error)
-        throw error
-      }
+      const res = await getDiktatByIdAction(diktatId)
+      return res
     },
   })
 
   // Update diktat title dan collectionName saat data diktat berhasil dimuat
   useEffect(() => {
-    if (diktat) {
-      setDiktatTitle(diktat.title || 'Diktat')
-      if (diktat.icon) setDiktatIcon(diktat.icon)
-      if (diktat.collection_name) {
-        setCollectionName(diktat.collection_name)
+    if (isSuccess) {
+      setDiktatTitle(diktat!.title || 'Diktat')
+      if (diktat!.icon) setDiktatIcon(diktat!.icon)
+      if (diktat!.qdrantCollection) {
+        setCollectionName(diktat!.qdrantCollection)
       }
     }
-  }, [diktat])
+  }, [diktat, isSuccess])
 
   // Handle navigasi ke halaman chat baru jika chatId adalah "new"
   useEffect(() => {
@@ -374,7 +370,7 @@ export default function ChatPage() {
                   <div
                     className={cn(
                       'prose prose-sm dark:prose-invert max-w-none',
-                      message.role === 'user'
+                      message!.role === 'user'
                         ? 'prose-p:text-primary-foreground prose-headings:text-primary-foreground prose-strong:text-primary-foreground'
                         : '',
                     )}
