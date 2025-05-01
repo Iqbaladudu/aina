@@ -166,13 +166,13 @@ function SidebarDiktatContent({
             }}
           />
         </SidebarContent>
-        {state === 'expanded' && (
+        {/* {state === 'expanded' && (
           <SidebarFooter className="border-t p-3">
             <div className="text-xs text-muted-foreground">
               <span className="truncate">Login: {CURRENT_USER}</span>
             </div>
           </SidebarFooter>
-        )}
+        )} */}
       </Sidebar>
     </>
   )
@@ -253,16 +253,10 @@ function DiktatMenu({
                         <div className="flex items-center">
                           <span className="mr-2">{diktat.icon}</span>
                           <span className="truncate">{diktat.title}</span>
-                        </div>
-                        {isDraft ? (
-                          <span className="ml-2 text-xs font-normal text-yellow-500 bg-yellow-50 px-1.5 py-0.5 rounded">
-                            Coming soon
+                          <span className="ml-2 text-xs font-normal text-yellow-500 px-1.5 py-0.5 rounded">
+                            {isDraft ? 'Coming soon' : 'Preview'}
                           </span>
-                        ) : isDiktatExpanded ? (
-                          <ChevronDownIcon className="h-4 w-4 shrink-0 opacity-50" />
-                        ) : (
-                          <ChevronRightIcon className="h-4 w-4 shrink-0 opacity-50" />
-                        )}
+                        </div>
                       </SidebarMenuButton>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="px-2 py-1">

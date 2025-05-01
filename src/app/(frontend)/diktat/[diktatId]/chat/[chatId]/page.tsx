@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { useRouter } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
 import { PaperPlaneIcon, GearIcon } from '@radix-ui/react-icons'
@@ -25,13 +25,6 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { AlertTriangle } from 'lucide-react'
 import { AIModel } from 'types/enums'
 import { SidebarTrigger, useSidebar } from '@/components/ui/sidebar'
-
-interface ChatPageProps {
-  params: {
-    diktatId: string
-    chatId: string
-  }
-}
 
 // Tipe untuk data diktat dari API
 interface DiktatData {
@@ -65,8 +58,8 @@ interface ChatMessage {
 const CURRENT_USER = 'USER'
 const DEFAULT_COLLECTION = 'fikih-muqoron'
 
-export default function ChatPage({ params }: ChatPageProps) {
-  const { diktatId, chatId } = params
+export default function ChatPage() {
+  const { diktatId, chatId } = useParams<{ diktatId: string; chatId: string }>()
   const router = useRouter()
   const [input, setInput] = useState('')
   const [messages, setMessages] = useState<ChatMessage[]>([])
@@ -77,7 +70,7 @@ export default function ChatPage({ params }: ChatPageProps) {
   const { isMobile } = useSidebar()
 
   // State untuk model dan pengaturan
-  const [selectedModel, setSelectedModel] = useState<AIModel>(AIModel.MISTAL_SABA_LATEST)
+  const [selectedModel, setSelectedModel] = useState<AIModel>(AIModel.MISTRAL_SABA_LATEST)
   const [settingsOpen, setSettingsOpen] = useState(false)
 
   const messagesEndRef = useRef<HTMLDivElement>(null)
@@ -473,7 +466,7 @@ export default function ChatPage({ params }: ChatPageProps) {
                                 </div>
                                 {source.content && (
                                   <div className="mt-2 text-xs text-muted-foreground border-l-2 border-muted pl-2 italic">
-                                     &ldquo;{source.content}...&ldquo;
+                                    &ldquo;{source.content}...&ldquo;
                                   </div>
                                 )}
                               </div>

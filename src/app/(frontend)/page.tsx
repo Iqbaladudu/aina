@@ -457,12 +457,12 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center gap-2 mb-4 md:mb-0">
             <BookOpenIcon className="h-6 w-6 text-primary" />
-            <span className="font-bold text-lg">DiktatRAG</span>
+            <span className="font-bold text-lg">AINA</span>
           </div>
 
           <div className="text-sm text-muted-foreground">
-            Logged in as <span className="font-medium">{CURRENT_USER}</span> •{' '}
-            {new Date(CURRENT_DATETIME).toLocaleString()}
+            {/* Logged in as <span className="font-medium">{CURRENT_USER}</span> •{' '}
+            {new Date(CURRENT_DATETIME).toLocaleString()} */}
           </div>
 
           <div className="flex gap-4 mt-4 md:mt-0">
