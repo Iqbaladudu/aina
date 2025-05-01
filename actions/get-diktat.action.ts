@@ -14,6 +14,6 @@ export default async function getDiktatAction() {
     return diktatList.docs
   } catch (error) {
     console.error(error)
-    return {}
+    return []
   }
 }

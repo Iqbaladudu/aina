@@ -117,9 +117,9 @@ export default function NewChatPage() {
       </div>
 
       <div className="flex justify-between items-center">
-        <div className="text-sm text-muted-foreground">
+        {/* <div className="text-sm text-muted-foreground">
           User: {CURRENT_USER} • {new Date(CURRENT_DATETIME).toLocaleString()}
-        </div>
+        </div> */}
         <Button size="lg" onClick={handleStartChat} disabled={!selectedDiktat}>
           Mulai Chat
         </Button>

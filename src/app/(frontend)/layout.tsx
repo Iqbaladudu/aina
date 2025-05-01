@@ -7,7 +7,7 @@ import { ThemeProvider } from 'next-themes'
 import { SidebarProvider } from '@/components/ui/sidebar'
 
 export const metadata = {
-  title: 'AINA AI - An AI Powered Islamic Studies',
+  title: 'Aina AI - An AI Powered Islamic Studies',
   description: 'Learn, ask, and discuss Islamic studies with AI',
   applicationName: 'AINA-AI',
 }
