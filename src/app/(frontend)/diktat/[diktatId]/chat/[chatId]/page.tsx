@@ -402,15 +402,7 @@ export default function ChatPage() {
                             {...props}
                           />
                         ),
-                        code: ({ node, inline, ...props }) =>
-                          inline ? (
-                            <code
-                              className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-sm"
-                              {...props}
-                            />
-                          ) : (
-                            <code {...props} />
-                          ),
+                        code: ({ node, ...props }) => <code {...props} />,
                       }}
                     >
                       {message.content}
