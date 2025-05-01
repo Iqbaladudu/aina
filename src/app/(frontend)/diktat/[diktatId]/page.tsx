@@ -9,12 +9,7 @@ import { useQuery } from '@tanstack/react-query'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import getDiktatByIdAction from 'actions/get-diktat-by-id.action'
-
-interface DiktatPageProps {
-  params: {
-    diktatId: string
-  }
-}
+import { useParams } from 'next/navigation'
 
 // Definisi tipe untuk data yang diharapkan dari getDiktatByIdAction
 interface DiktatData {
@@ -31,8 +26,8 @@ interface ChatHistoryItem {
   date: string
 }
 
-const DiktatPage: React.FC<DiktatPageProps> = ({ params }) => {
-  const { diktatId } = params
+const DiktatPage = () => {
+  const { diktatId } = useParams<{ diktatId: string }>()
 
   // Fetch diktat data menggunakan React Query
   const {
