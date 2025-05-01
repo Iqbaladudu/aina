@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils'
 import ReactQueryProvider from '@/components/ReactQueryProvider'
 import { ThemeProvider } from 'next-themes'
 import { SidebarProvider } from '@/components/ui/sidebar'
+import { Analytics } from '@vercel/analytics/react'
 
 export const metadata = {
   title: 'Aina AI - An AI Powered Islamic Studies',
@@ -15,6 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode | ReactNode[] }) {
   return (
     <html lang="id" suppressHydrationWarning>
+      <Analytics />
       <body className={cn('min-h-screen bg-background text-foreground antialiased')}>
         <ReactQueryProvider>
           <ThemeProvider
