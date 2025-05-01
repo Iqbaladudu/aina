@@ -367,14 +367,7 @@ export default function ChatPage() {
                 )}
               >
                 {message.role === 'assistant' ? (
-                  <div
-                    className={cn(
-                      'prose prose-sm dark:prose-invert max-w-none',
-                      message!.role === 'user'
-                        ? 'prose-p:text-primary-foreground prose-headings:text-primary-foreground prose-strong:text-primary-foreground'
-                        : '',
-                    )}
-                  >
+                  <div className={cn('prose prose-sm dark:prose-invert max-w-none')}>
                     <ReactMarkdown
                       remarkPlugins={[remarkGfm]}
                       components={{
