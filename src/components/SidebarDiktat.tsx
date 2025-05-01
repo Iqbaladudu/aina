@@ -6,24 +6,18 @@ import { Button } from '@/components/ui/button'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Separator } from '@/components/ui/separator'
 import { cn } from '@/lib/utils'
-import { BookOpenIcon } from 'lucide-react'
-import { ChatBubbleIcon, ChevronDownIcon, ChevronRightIcon, PlusIcon } from '@radix-ui/react-icons'
+import { PlusIcon } from '@radix-ui/react-icons'
 import getDiktatAction from 'actions/get-diktat.action'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
 import {
-  SidebarProvider,
   Sidebar,
   SidebarTrigger,
   SidebarHeader,
   SidebarContent,
-  SidebarFooter,
   SidebarGroup,
-  SidebarGroupLabel,
-  SidebarGroupContent,
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
-  SidebarMenuAction,
   SidebarMenuBadge,
   useSidebar,
 } from '@/components/ui/sidebar'
@@ -34,7 +28,6 @@ interface Diktat {
   title: string
   description: string
   icon: string
-  chatCount: number
   status: 'published' | 'draft' | 'archived'
 }
 
@@ -70,7 +63,6 @@ export function SidebarDiktat() {
             title: diktat.title,
             description: diktat.description || '',
             icon: diktat.icon || '📚',
-            chatCount: diktat.chatCount || 0,
             status: (diktat.status || 'published') as Diktat['status'],
           }))
           setDiktatList(formattedData)
@@ -90,7 +82,7 @@ export function SidebarDiktat() {
   }, [])
 
   // Extract diktatId and chatId from pathname
-  const { diktatId, chatId } = React.useMemo(() => {
+  const { diktatId } = React.useMemo(() => {
     const match = pathname.match(/^\/diktat\/([^\/]+)(?:\/chat\/([^\/]+))?$/)
     return {
       diktatId: match?.[1] || null,
@@ -140,7 +132,7 @@ function SidebarDiktatContent({
   handleNewChat,
   navigateToDiktat,
 }: DiktatMenuProps) {
-  const { toggleSidebar, state, isMobile, setOpenMobile } = useSidebar()
+  const { state, isMobile, setOpenMobile } = useSidebar()
 
   return (
     <>
